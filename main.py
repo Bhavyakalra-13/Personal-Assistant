@@ -1,3 +1,4 @@
+from datetime import date
 import pyttsx3
 import speech_recognition as sr
 import datetime
@@ -107,10 +108,13 @@ if __name__ == "__main__":
                 print(songs)
                 os.startfile(os.path.join(music_dir, songs[0]))
 
-            elif 'the time' in query:
-                strTime = datetime.datetime.now().strftime("%H:%M:%S")
-                speak(f"Sir, the time is {strTime}")
+            elif 'time' in query or 'date' in query:
+                date = datetime.datetime.now()
+                strTime = date.strftime("%I.%M,%p")
+                strDate = date.strftime("%A %d %B %Y")
+                speak(f"Sir, the time is {strTime} and the date is {strDate}")
                 print(strTime)
+                print(strDate)
 
             elif 'open code' in query:
                 codePath = "F:\VS CODE\Vs code\Microsoft VS Code\Code.exe"
@@ -127,7 +131,7 @@ if __name__ == "__main__":
                     print(e)
                     speak("Sorry. I am not able to send this email")
 
-            elif 'exit' in query:
+            elif 'exit' in query or 'stop' in query:
                 exit()
                 
             else:
