@@ -1,4 +1,3 @@
-from os import system
 import pyttsx3
 import speech_recognition as sr
 import datetime
@@ -6,7 +5,6 @@ import wikipedia
 import webbrowser
 import os
 import smtplib
-import re
 
 
 # engine = pyttsx3.init()
@@ -139,3 +137,4 @@ if __name__ == "__main__":
         except Exception as e:
             # print(e)
             print("Say that again please...")
+            speak("Say that again please...")
