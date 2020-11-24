@@ -11,27 +11,27 @@
 
 <body class="bg-black h-screen w-screen text-white">
   <!-- loading -->
-  <div id='loader' class=" show w-screen h-screen fixed bg-black z-10 "><img class="m-auto" src="./img/loader.gif" alt=""></div>
+  <div id='loader' class=" show w-screen h-screen fixed bg-black z-10 "><img class="m-auto" src="./img/loader.gif"
+      alt=""></div>
   <!-- loading -->
   <div class='flex flex-col items-center'>
     <div class="w-screen flex-1">
-      <p class='text-right mr-24 font-mono font-bold text-3xl '>3:09 Pm </p>
-      <p class='text-right mr-8 font-mono  font-bold text-3xl '>19 nov 2020 </p>
+      <p class='text-right xl:mr-24 mr-12 font-mono font-bold xl:text-3xl text-xl '>3:09 Pm </p>
+      <p class='text-right xl:mr-8  mr-1 font-mono  font-bold xl:text-3xl text-xl '>19 nov 2020 </p>
     </div>
 
-<!-- typing effect -->
+    <!-- typing effect -->
 
-    <div id="typedtext" class=" font-mono text-3xl font-bold flex-1"></div>
+    <div id="typedtext" class=" mt-10 font-mono xl:text-3xl text-xl font-bold flex-1"></div>
 
-<!-- typing effect end -->
+    <!-- typing effect end -->
 
-    <div class='flex h-screen flex-1 w-11/12 mx-auto justify-content-center items-center'>
+    <div class='flex h-screen flex-1 mt-16 w-11/12 mx-auto justify-content-between items-center'>
 
-      <div class=" flex flex-1 w-1/3 flex-col justify-content-center items-center">
-        <span class=" border-2 h-80 w-80"></span>
-        <span class=" border-2 h-80 w-80"></span>
-        <span class=" border-2 h-80 w-80"></span>  
-        <div id="box1" class=" "></div>
+      <div class="box flex overflow-auto mr-5 flex-1 w-1/3 border-2 h-60 max-w-3xl inline-block ">
+        <div class="px-5  m-auto">
+
+        </div>
       </div>
 
       <!-- gif -->
@@ -40,16 +40,25 @@
       </div>
       <!-- gif end -->
 
-      <div class=" flex flex-col w-1/3 flex-1 justify-content-center items-center">
-        <span class=" border-2 h-80 w-80"></span>
-        <span class=" border-2 h-80 w-80"></span>
-        <span class=" border-2 h-80 w-80"></span>
-        <div id="box2" class=" "></div>
-        
+      <div class="box flex overflow-auto ml-5 flex-1 w-1/3 border-2 h-60 max-w-3xl inline-block">
+        <div class="px-5  m-auto">
+
+        </div>
       </div>
     </div>
+    <!-- button -->
+    <div class="flex-1 mt-16 ">
+      <button id="button" onclick="Start()" class="btn font-bold text-sm w-32 h-8 rounded-md"><span id="btn"></span>Listining</button>
+    </div>
+    <!-- footer -->
+    <div class=" flex-1 mt-6" >
+      <a href="https://bhavyakalra-13.github.io/PortfolioWebDesign/">Made By <span class="text-blue-400">@Bhavya kalra</span></a>
+    </div>
+    <!-- footer end -->
 
+  </div>
 
 </body>
 <script src="./tool.js"></script>
+
 </html>
