@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "f:\\Python\\Python project\\Personal Assistante\\Personal-Assistant\\Assistant_Backend\\Scripts\\python.exe"
+    "python.pythonPath": "f:\\Python\\Python project\\Personal Assistante\\Personal-Assistant\\Assistant_Backend\\Scripts\\python.exe",
+    "liveServer.settings.port": 5501
 }
