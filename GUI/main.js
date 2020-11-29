@@ -1,22 +1,44 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
-
+const url = require("url");
+let win;
 function createWindow() {
-  const mainWindow = new BrowserWindow({
+  let config = {
     width: 800,
     height: 600,
+    autoHideMenuBar: false,
+    frame: true,
+    backgroundColor: "rgb(19,17,15)",
+    show: true,
     icon: path.join(__dirname, "./img/ai.ico"),
+    webPreferences: {
+      nodeIntegration: true,
+    },
+  };
+  win = new BrowserWindow(config);
+  win.loadURL(
+    url.format({
+      pathname: path.join(__dirname, "index.html"),
+      protocol: "file:",
+      slashes: true,
+    })
+  );
+
+  win.once("ready-to-show", () => {
+    win.show();
   });
-  mainWindow.loadFile("index.html");
+  win.on("closed", () => {
+    win = null;
+  });
 }
-app.whenReady().then(() => {
-  createWindow();
-
-  app.on("activate", function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
+app.on("ready", createWindow);
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
 });
-
-app.on("window-all-closed", function () {
-  if (process.platform !== "darwin") app.quit();
+app.on("activate", () => {
+  if (win === null) {
+    createWindow();
+  }
 });

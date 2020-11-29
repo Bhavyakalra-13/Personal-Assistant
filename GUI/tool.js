@@ -38,58 +38,32 @@ function typewriter() {
   }
 }
 
-// speech to text
 
-let right = document.getElementById("right");
-var speechRecognizer = new webkitSpeechRecognition();
+let dt = document.getElementById('date')
+let time = document.getElementById('time')
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-function startConverting() {
-  if ("webkitSpeechRecognition" in window) {
-    speechRecognizer.continuous = true;
-    speechRecognizer.interimResults = true;
-    speechRecognizer.lang = "en-US";
-    speechRecognizer.start();
-
-    var finalTranscripts = "";
-
-    speechRecognizer.onresult = function (event) {
-      var interimTranscripts = "";
-      for (var i = event.resultIndex; i < event.results.length; i++) {
-        var transcript = event.results[i][0].transcript;
-        transcript.replace("\n", "<br>");
-        if (event.results[i].isFinal) {
-          finalTranscripts += transcript;
-        } else {
-          interimTranscripts += transcript;
-        }
-      }
-      right.innerHTML = finalTranscripts + interimTranscripts;
- 
-    };
-    speechRecognizer.onerror = function (event) {
-      console.error(event);
-    };
-  } else {
-    alert(
-      "Your browser is not supported. Please download Google chrome or Update your Google chrome!!"
-    );
+function datetime(){
+  var d = new Date();
+  var day = days[d.getDay()];
+  var hr = d.getHours();
+  var min = d.getMinutes();
+  if (min < 10) {
+      min = "0" + min;
   }
-}
-
-
-// button
-let button = document.getElementById("button");
-let buttontext = document.getElementById("btn");
-buttontext.innerHTML = "Start ";
-flag = false;
-function start() {
-  if (flag) {
-    buttontext.innerHTML = "Start ";
-    flag=false;
-    speechRecognizer.stop();
-  } else {
-    buttontext.innerHTML = "Stop ";
-    flag = true;
-    startConverting();
+  var ampm = "am";
+  if( hr > 12 ) {
+      hr -= 12;
+      ampm = "pm";
   }
-}
+  var date = d.getDate();
+  var month = months[d.getMonth()];
+  var year = d.getFullYear();
+  dt.innerHTML=date + "-"+ month + "-" + year;
+  time.innerHTML=day + ", " + hr + ":" + min + " " + ampm;
+  }
+// 
+
+datetime()
+setInterval(()=>datetime(),60000)

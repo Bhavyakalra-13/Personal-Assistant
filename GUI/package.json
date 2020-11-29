@@ -12,6 +12,7 @@
     "electron": "^10.1.5"
   },
   "dependencies": {
+    "child_process": "^1.0.2",
     "python-shell": "^2.0.3"
   }
 }
