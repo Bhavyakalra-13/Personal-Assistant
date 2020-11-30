@@ -38,7 +38,13 @@ btn.addEventListener("click", function () {
   if (flag) {
     buttontext.innerHTML = "Start ";   
     flag = false;
-    
+    let terminate = new PythonShell("pid.py", options);
+    terminate.on("message", function (message) {
+    userchat(message)
+    });
+    setTimeout(()=>{
+      userchat("Press start Listening")
+    },2000)
   } else {
     buttontext.innerHTML = "Stop ";
     flag = true;

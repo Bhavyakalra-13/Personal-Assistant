@@ -5,14 +5,18 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . GUI --all --asar --icon='./img/ai.ico'"
+    "build": "electron-packager . GUI --all --asar",
+    "dist": "electron-builder"
   },
   "author": "Bhavya kalra",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^10.1.5"
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1",
+    "electron-packager": "^15.1.0"
   },
   "dependencies": {
     "python-shell": "^2.0.3"
-  }
+  },
+  "build": {}
 }

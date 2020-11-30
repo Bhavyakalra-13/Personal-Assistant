@@ -4,13 +4,9 @@ const url = require("url");
 let win;
 function createWindow() {
   let config = {
-    width: 800,
-    height: 600,
-    autoHideMenuBar: false,
-    frame: true,
-    backgroundColor: "rgb(19,17,15)",
-    show: true,
-    icon: path.join(__dirname, "./img/ai.ico"),
+    width: 900,
+    height: 700,
+    frame: false,
     webPreferences: {
       nodeIntegration: true,
     },
