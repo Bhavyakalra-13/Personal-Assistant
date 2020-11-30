@@ -48,14 +48,17 @@ function datetime(){
   var d = new Date();
   var day = days[d.getDay()];
   var hr = d.getHours();
+  if (hr===0){
+    hr=12
+  }
   var min = d.getMinutes();
   if (min < 10) {
       min = "0" + min;
   }
-  var ampm = "am";
+  var ampm = "Am";
   if( hr > 12 ) {
       hr -= 12;
-      ampm = "pm";
+      ampm = "Pm";
   }
   var date = d.getDate();
   var month = months[d.getMonth()];

@@ -12,27 +12,42 @@ let btn = document.getElementById("button");
 
 let buttontext = document.getElementById("btn");
 buttontext.innerHTML = "Start ";
-flag = false;
+let flag = false;
+
+
 btn.addEventListener("click", function () {
-if (flag) {
-  buttontext.innerHTML = "Start ";
-  flag = false;
-} else {
-  buttontext.innerHTML = "Stop ";
-  flag = true;
-}
-
-
   let { PythonShell } = require("python-shell");
+  
   let options = {
     scriptPath:
       "F:/Python/Python project/Personal Assistante/Personal-Assistant/Assistant_Backend",
     args: [],
   };
-  let pyshell = new PythonShell("main.py", options);
-  pyshell.on("message", function (message) {
+
+  let pyget = new PythonShell("voice.py", options);
+  pyget.on("message", function (message) {
+    if (message==="None"){
+      display("")
+    }
+    else{
+    display(message)
+    }
+  });
+  
+  
+  if (flag) {
+    buttontext.innerHTML = "Start ";   
+    flag = false;
+    
+  } else {
+    buttontext.innerHTML = "Stop ";
+    flag = true;
+    let pyshell = new PythonShell("main.py", options);
+    pyshell.on("message", function (message) {
     userchat(message)
   });
+  
+  }
 });
 
 display();
