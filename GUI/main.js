@@ -6,7 +6,8 @@ function createWindow() {
   let config = {
     width: 900,
     height: 700,
-    frame: false,
+    autoHideMenuBar: true,
+    icon: path.join(__dirname, "./img/ai2.ico"),
     webPreferences: {
       nodeIntegration: true,
     },

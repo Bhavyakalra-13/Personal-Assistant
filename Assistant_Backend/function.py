@@ -111,6 +111,7 @@ def function(speak, query):
             speak("Sorry. I am not able to send this email")
 
     elif 'exit' in query or 'stop' in query:
+        print()
         exit()
         
     else:

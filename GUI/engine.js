@@ -1,6 +1,6 @@
 const remote = require("electron").remote;
 
-function userchat(text = "Listening....") {
+function userchat(text = "Click on Start!") {
   let box = document.getElementById("left");
   box.innerHTML = text;
 }
@@ -43,9 +43,10 @@ btn.addEventListener("click", function () {
     userchat(message)
     });
     setTimeout(()=>{
-      userchat("Press start Listening")
+      userchat("Click on Start!")
     },2000)
   } else {
+    userchat("Please Wait Ai Engine Loading...")
     buttontext.innerHTML = "Stop ";
     flag = true;
     let pyshell = new PythonShell("main.py", options);

@@ -41,7 +41,7 @@ function typewriter() {
 
 let dt = document.getElementById('date')
 let time = document.getElementById('time')
-var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var months = ["January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 function datetime(){
@@ -55,15 +55,15 @@ function datetime(){
   if (min < 10) {
       min = "0" + min;
   }
-  var ampm = "Am";
+  var ampm = "AM";
   if( hr > 12 ) {
       hr -= 12;
-      ampm = "Pm";
+      ampm = "PM";
   }
   var date = d.getDate();
   var month = months[d.getMonth()];
   var year = d.getFullYear();
-  dt.innerHTML=date + "-"+ month + "-" + year;
+  dt.innerHTML=date + " "+ month + ", " + year;
   time.innerHTML=day + ", " + hr + ":" + min + " " + ampm;
   }
 // 

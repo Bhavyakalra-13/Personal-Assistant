@@ -17,6 +17,5 @@
   },
   "dependencies": {
     "python-shell": "^2.0.3"
-  },
-  "build": {}
+  }
 }
