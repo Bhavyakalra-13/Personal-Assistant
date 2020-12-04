@@ -4,7 +4,6 @@ import datetime
 import wikipedia
 import webbrowser
 import os
-import datetime
 import smtplib
 from listen import *
 import sys
@@ -33,7 +32,6 @@ def wishme(speak):
     sys.stdout.flush()
     speak("I am Jarvis Sir. Please tell me how I can help you")
     
-
 
 def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -97,6 +95,24 @@ def function(speak, query):
         sys.stdout.flush()
         speak("Opening Code")
 
+    elif 'temperature' in query:
+        webbrowser.get('chrome').open("https://bhavyakalra-13.github.io/Weather_Info_App/")
+        print("opening weather app")
+        sys.stdout.flush()
+        speak("opening Weather app")
+
+    
+    elif ('f*** you' or 'motherfucker' or 'you are disgusting'  or 'ugly' or 'bitch' or 'you are stupid' or "you're stupid") in query.lower():
+        print('You are so rude, I will not respond to that')
+        sys.stdout.flush()
+        speak('You are so rude, I will not respond to that')
+        
+
+    elif ('love you' in query.lower() or 'would you marry me' in query.lower()):
+        print('oh, you are so sweet')
+        sys.stdout.flush()
+        speak('oh, you are so sweet')
+        
 
     elif 'email to Bhavya' in query:
         try:
