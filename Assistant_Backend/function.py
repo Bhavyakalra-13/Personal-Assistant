@@ -43,8 +43,11 @@ def sendEmail(to, content):
 
 def function(speak, query):
     if 'wikipedia' in query:  # if wikipedia found in the query then this block will be executed
+        print('Searching Wikipedia...')
+        sys.stdout.flush()
         speak('Searching Wikipedia...')
-        query = query.replace("wikipedia", "")
+        query = query.replace("acording to wikipedia", "")
+        print(query)
         results = wikipedia.summary(query, sentences=2)
         speak("According to Wikipedia")
         print(results)

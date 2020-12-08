@@ -1,12 +1,15 @@
 import speech_recognition as sr
 from speak import speak
 import sys
+from threading import Timer
 
 def takecommand():
     try:
+        
         print("Listining...")
         sys.stdout.flush()
         speak("Listining...")
+        
         
         r = sr.Recognizer()
         with sr.Microphone() as source:
